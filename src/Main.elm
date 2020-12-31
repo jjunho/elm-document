@@ -14,9 +14,9 @@ type Msg
     = NoOp
 
 
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( {}, Cmd.none )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -26,16 +26,16 @@ update msg model =
             ( model, Cmd.none )
 
 
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
+
+
 view : Model -> Browser.Document Msg
 view model =
     { title = ""
     , body = [ div [] [] ]
     }
-
-
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( {}, Cmd.none )
 
 
 main : Program () Model Msg
